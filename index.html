@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Películas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body id="body">
+    <div class="jumbotron">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Película favorita</th>
+                    </tr>
+                </thead>
+                <tbody id="content"></tbody>
+            </table>
+        </div>
+        <div id="createPerson" class="col-12">
+
+        </div>
+    </div>
+    <!-- Modal Create-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre Completo</label>
+                            <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Apellidos</label>
+                            <input type="text" class="form-control" id="exampleInput2" placeholder="Apellidos">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Edad</label>
+                            <input type="number" class="form-control" id="exampleInput3" placeholder="Edad">
+                        </div>
+                        <div class="form-group">
+                            <label for="movieId">Película Favorita</label>
+                            <select id="movieId" class="form-control">
+                              <option selected>Elige...</option>
+                              <option value="1">A New Hope</option>
+                              <option value="2">The Empire Strikes Back</option>
+                              <option value="3">Return of the Jedi</option>
+                              <option value="4">The Phantom Menace</option>
+                              <option value="5">Attack of the Clones</option>
+                              <option value="6">Revenge of the Sith</option>
+                            </select>
+                          </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button id="savePerson" type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Modal Update-->
+     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="udpateModalLabel">Editar Registro</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <form>
+                    <div class="form-group" hidden>
+                        <input type="text" class="form-control" id="id" placeholder="Nombre">
+                    </div>
+                     <div class="form-group">
+                         <label for="updateInput1">Nombre Completo</label>
+                         <input type="text" class="form-control" id="updateInput1" placeholder="Nombre">
+                     </div>
+                     <div class="form-group">
+                         <label for="updateInput2">Apellidos</label>
+                         <input type="text" class="form-control" id="updateInput2" placeholder="Apellidos">
+                     </div>
+                     <div class="form-group">
+                         <label for="updateInput3">Edad</label>
+                         <input type="number" class="form-control" id="updateInput3" placeholder="Edad">
+                     </div>
+                     <div class="form-group">
+                         <label for="updateMovieId">Película Favorita</label>
+                         <select id="updateMovieId" class="form-control">
+                           <option selected>Elige...</option>
+                           <option value="1">A New Hope</option>
+                           <option value="2">The Empire Strikes Back</option>
+                           <option value="3">Return of the Jedi</option>
+                           <option value="4">The Phantom Menace</option>
+                           <option value="5">Attack of the Clones</option>
+                           <option value="6">Revenge of the Sith</option>
+                         </select>
+                       </div>
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                 <button id="updatePerson" type="button" class="btn btn-success">Guardar</button>
+             </div>
+         </div>
+     </div>
+ </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="./assets/js/script.js"></script>
+
+</html>
